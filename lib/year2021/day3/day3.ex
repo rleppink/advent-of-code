@@ -31,10 +31,7 @@ defmodule Year2021.Day3 do
 
     epsilon = gamma |> Enum.map(fn x -> if x == 0, do: 1, else: 0 end)
 
-    g = Enum.reduce(gamma, "", fn curr, acc -> acc <> Integer.to_string(curr) end) |> String.to_integer(2)
-    e = Enum.reduce(epsilon, "", fn curr, acc -> acc <> Integer.to_string(curr) end) |> String.to_integer(2)
-
-    g * e
+    list_to_int(gamma) * list_to_int(epsilon)
   end
 
   defp acc_row(row, acc) do
@@ -46,7 +43,7 @@ defmodule Year2021.Day3 do
     end)
   end
 
-  def list_to_string(bit_list) do
+  defp list_to_int(bit_list) do
     bit_list
     |> Enum.reduce("", fn curr, acc -> acc <> Integer.to_string(curr) end)
     |> String.to_integer(2)
@@ -70,8 +67,8 @@ defmodule Year2021.Day3 do
   end
 
   def solve_2(input) do
-    mcb = solve_2(input, &most_common_bit/2, 0) |> list_to_string
-    lcb = solve_2(input, &least_common_bit/2, 0) |> list_to_string
+    mcb = solve_2(input, &most_common_bit/2, 0) |> list_to_int
+    lcb = solve_2(input, &least_common_bit/2, 0) |> list_to_int
 
     mcb * lcb
   end

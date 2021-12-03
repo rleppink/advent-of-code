@@ -7,7 +7,8 @@ defmodule AdventOfCode.MixProject do
       version: "0.1.0",
       elixir: "~> 1.12",
       start_permanent: Mix.env() == :prod,
-      deps: deps()
+      deps: deps(),
+      aliases: [ go: ["run lib/puzzle_runner.exs"] ]
     ]
   end
 
@@ -22,4 +23,5 @@ defmodule AdventOfCode.MixProject do
       {:mix_gen_module, path: "~/workspaces/mix_gen_module"}
     ]
   end
+
 end
